@@ -5,3 +5,4 @@ from dataclasses import dataclass
 class NaukriConfig:
     username: str = ""
     password: str = ""
+    url: str = ""

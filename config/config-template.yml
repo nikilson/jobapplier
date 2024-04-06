@@ -1,4 +1,11 @@
 driver: "YOUR PATH\\chromedriver.exe"
 naukri:
+  url: 'https://www.naukri.com/'
   username: "username"
   password: "password"
+
+job_preferences:
+  location: 'India'
+  maximum_lpa: '15'
+  minimum_lpa: '10'
+  role: 'Data Analyst'
