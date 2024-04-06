@@ -1,0 +1,4 @@
+driver: "YOUR PATH\\chromedriver.exe"
+naukri:
+  username: "username"
+  password: "password"
