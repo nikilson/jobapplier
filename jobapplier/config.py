@@ -8,6 +8,7 @@ class JobPreferences:
     maximum_lpa: str = ""
     minimum_lpa: str = ""
     role: str = ""
+    skill_sets: list = field(default_factory=list)
 
 
 @dataclass

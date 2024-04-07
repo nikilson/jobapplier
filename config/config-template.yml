@@ -5,7 +5,8 @@ naukri:
   password: "password"
 
 job_preferences:
-  location: 'India'
+  location: 'Dubai'
   maximum_lpa: '15'
   minimum_lpa: '10'
-  role: 'Data Analyst'
+  role: 'Data Engineer'
+  skill_sets: ['Python', 'Airflow', 'Kubernetes', 'Ingestion']

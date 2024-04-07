@@ -17,15 +17,14 @@ def search(title, location):
 # Add more commands as needed...
 
 @cli.command("apply")
-@click.option('--config', '-c',default='config/config.yml', help='Config file')
+@click.option('--config', '-c', default='config/config.yml', help='Config file')
 @click.option('--site', '-s', help='Job Site')
-@click.option('--title', '-t', help='Job title to search for')
-@click.option('--location', '-l', default='Any', help='Job location (default: Any)')
-def apply(config, site, title, location):
+@click.option('--limit', '-l', default=30, help='Set no of job to be applied')
+def apply(config, site, limit):
     config = load_config(config)
     """Search for job listings."""
     if site == 'naukri':
-        naukri_cnt = NaukriController(config)
+        naukri_cnt = NaukriController(config, limit)
         naukri_cnt.apply()
     # click.echo(f"Searching for {title} jobs in {location}...")
     # Implement job search logic here
