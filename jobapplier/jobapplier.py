@@ -20,11 +20,12 @@ def search(title, location):
 @click.option('--config', '-c', default='config/config.yml', help='Config file')
 @click.option('--site', '-s', help='Job Site')
 @click.option('--limit', '-l', default=30, help='Set no of job to be applied')
-def apply(config, site, limit):
+@click.option('--mode', '-m', default='auto', help='Set this for auto apply or manual')
+def apply(config, site, limit, mode):
     config = load_config(config)
     """Search for job listings."""
     if site == 'naukri':
-        naukri_cnt = NaukriController(config, limit)
+        naukri_cnt = NaukriController(config, limit, mode)
         naukri_cnt.apply()
     # click.echo(f"Searching for {title} jobs in {location}...")
     # Implement job search logic here

@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 
 
 class NaukriController:
-    def __init__(self, config, limit):
+    def __init__(self, config, limit, mode):
         self.config = config
         self.driver = wb.Chrome()
         self.skill_sets = config.job_preferences.skill_sets
@@ -15,6 +15,7 @@ class NaukriController:
         self.role = config.job_preferences.role.lower().replace(" ", "-")
         self.job_urls = []
         self.limit = int(limit)
+        self.mode = mode
 
     def login(self):
         self.driver.get(self.config.naukri.url)
@@ -55,7 +56,10 @@ class NaukriController:
             try:
                 self.driver.get(job)
                 time.sleep(5)
-                self.driver.find_element(By.XPATH, '//*[@id="apply-button"]').click()
+                if self.mode == "auto":
+                    self.driver.find_element(By.XPATH, '//*[@id="apply-button"]').click()
+                else:
+                    time.sleep(15)
                 job_applied += 1
                 time.sleep(2)
             except Exception as e:
@@ -67,5 +71,3 @@ class NaukriController:
         self.login()
         self.search_jobs()
         self.apply_jobs()
-        print(self.config)
-        print(self.config.driver)
